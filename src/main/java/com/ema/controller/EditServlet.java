@@ -62,10 +62,10 @@ public class EditServlet extends HttpServlet{
 		out.print("<body>");
 		out.print("<h1 align='center'><b>TABLE FORM</b></h1>");
 		out.print("<center><form action='update' method='post' style='font-size:40px'><label>ID</label><br>"
-				+ "<input type='hidden' value=''><br><label>NAME</label><br><input type='text'  value='"+na+"'><br>"
-				+ "<label>GENDER</label><br><input type='radio' name='gender' value=''>male<input type='radio' name='gender'>female<br>"
-				+ "<label>date of birth</label><br><input type='date' value=''><br><label>PLACE</label><br>"
-				+ "<input type='text' value=''><br><br><button type='submit'>update</button></form></center>");
+				+ "<input type='hidden' value='"+id+"'><br><label>NAME</label><br><input type='text'  value='"+na+"'><br>"
+				+ "<label>GENDER</label><br><input type='radio' name='gender' value='"+gn+"'>male<input type='radio' name='gender'>female<br>"
+				+ "<label>date of birth</label><br><input type='date' value='"+dd+"'><br><label>PLACE</label><br>"
+				+ "<input type='text' value='"+pp+"'><br><br><button type='submit'>update</button></form></center>");
 	    out.print("</body>");	
 		
 		
