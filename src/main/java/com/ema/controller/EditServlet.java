@@ -7,7 +7,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.swing.plaf.metal.MetalBorders.Flush3DBorder;
+
 import java.sql.*;
 import com.ema.bean.Employee;
 import com.ema.dao.EmployeeDao;
@@ -32,7 +32,7 @@ public class EditServlet extends HttpServlet{
 		int id = Integer.parseInt(request.getParameter("ide"));
 		
 		System.out.println(id);
-		String na;
+		String na,gn,dd,pp;
 		try {
 			String sql = "select * from employdetails where empid=?";
 			PreparedStatement ps = getCon().prepareStatement(sql);
@@ -43,6 +43,9 @@ public class EditServlet extends HttpServlet{
 			//emp.setEmpid(rs.getInt(1));
 			na = rs.getString(2);
 			System.out.println(na);
+			 gn = rs.getString(3);
+			 dd = rs.getString(3);
+			 pp = rs.getString(4);
 			//emp.setGender(rs.getString(3));String gn = rs.
 			//emp.setDob(rs.getString(4));
 			//emp.setPlace(rs.getString(5));
@@ -59,10 +62,10 @@ public class EditServlet extends HttpServlet{
 		out.print("<body>");
 		out.print("<h1 align='center'><b>TABLE FORM</b></h1>");
 		out.print("<center><form action='update' method='post' style='font-size:40px'><label>ID</label><br>"
-				+ "<input type='hidden' value='"+employee.getEmpid()+"'><br><label>NAME</label><br><input type='text'  value='"+na+"'><br>"
-				+ "<label>GENDER</label><br><input type='radio' name='gender' value='"+employee.getGender()+"'>male<input type='radio' name='gender'>female<br>"
-				+ "<label>date of birth</label><br><input type='date' value='"+employee.getDob()+"'><br><label>PLACE</label><br>"
-				+ "<input type='text' value='"+employee.getPlace()+"'><br><br><button type='submit'>update</button></form></center>");
+				+ "<input type='hidden' value=''><br><label>NAME</label><br><input type='text'  value='"+na+"'><br>"
+				+ "<label>GENDER</label><br><input type='radio' name='gender' value=''>male<input type='radio' name='gender'>female<br>"
+				+ "<label>date of birth</label><br><input type='date' value=''><br><label>PLACE</label><br>"
+				+ "<input type='text' value=''><br><br><button type='submit'>update</button></form></center>");
 	    out.print("</body>");	
 		
 		
