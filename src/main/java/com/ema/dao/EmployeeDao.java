@@ -81,11 +81,15 @@ public class EmployeeDao {
 			ps.setInt(1, empid);
 			ResultSet rs = ps.executeQuery();
 			while(rs.next()) {
+				
 			emp.setEmpid(rs.getInt(1));
 			emp.setEmpname(rs.getString(2));
 			emp.setGender(rs.getString(3));
 			emp.setDob(rs.getString(4));
 			emp.setPlace(rs.getString(5));
+			
+			System.out.println(empid);
+			
 			}
 			//System.out.println(emp.empname);
 		}catch(Exception e) {
