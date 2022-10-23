@@ -25,7 +25,9 @@ public class UpdateServlet extends HttpServlet{
 		employee.setGender(gender);
 		employee.setDob(dob);
 		employee.setPlace(place);
+		//System.out.println(place);
 		int i = EmployeeDao.updateEmployee(employee);
+		
 		if(i>0) {
 			response.sendRedirect("view");
 		}else {

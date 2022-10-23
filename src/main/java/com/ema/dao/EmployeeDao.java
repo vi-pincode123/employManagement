@@ -28,7 +28,9 @@ public class EmployeeDao {
 			ps.setString(2, employ.getGender());
 			ps.setString(3, employ.getDob());
 			ps.setString(4, employ.getPlace());
+			
 			status = ps.executeUpdate();
+			
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
@@ -85,6 +87,7 @@ public class EmployeeDao {
 			emp.setDob(rs.getString(4));
 			emp.setPlace(rs.getString(5));
 			}
+			//System.out.println(emp.empname);
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
@@ -95,7 +98,7 @@ public class EmployeeDao {
 	public static int updateEmployee(Employee employee) {
 		int status = 0;
 		try {
-			String sql = "UPDATE employdetails SET empname=?,gender=?,dob=?,place=? where empid=?";
+			String sql = "update employdetails set empname=?,gender=?,dob=?,place=? where empid=?";
 			PreparedStatement ps = getCon().prepareStatement(sql);
 			ps.setInt(1, employee.getEmpid());
 			ps.setString(2, employee.getEmpname());
@@ -106,8 +109,10 @@ public class EmployeeDao {
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
+		
 		return status;
 	}
+	
 
 }
 

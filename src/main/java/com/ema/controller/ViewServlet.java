@@ -20,7 +20,7 @@ public class ViewServlet extends HttpServlet{
 		out.print("<center><table border='5'><thead style='font-size:50px'><th>ID</th><th>NAME</th><th>GENDER</th><th>DOB</th><th>PLACE</th><th>EDIT</th><th>DELETE</th></thead></center>");
 	    out.print("<tbody style='color:orange'>");
 	    for(Employee emp : Employees) {
-	    	out.print("<tr><td>" +emp.getEmpid()+"</td><td>" +emp.getEmpname()+"</td><td>" +emp.getGender()+"</td><td>" +emp.getDob()+"</td><td>" +emp.getPlace()+"</td><td><a href='edit?id="+emp.getEmpid()+"'>edit</a></td><td><a href='delete?id="+emp.getEmpid()+"'>delete</a></td></tr>");
+	    	out.print("<tr><td>" +emp.getEmpid()+"</td><td>" +emp.getEmpname()+"</td><td>" +emp.getGender()+"</td><td>" +emp.getDob()+"</td><td>" +emp.getPlace()+"</td><td><a href='edit?ide="+emp.getEmpid()+"'>edit</a></td><td><a href='delete?id="+emp.getEmpid()+"'>delete</a></td></tr>");
 	    }
 	    out.print("</tbody></table>");
 	}

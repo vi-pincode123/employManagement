@@ -13,6 +13,7 @@ public class Employee {
 		this.empid = empid;
 	}
 	public String getEmpname() {
+		System.out.println(empname);
 		return empname;
 	}
 	public void setEmpname(String empname) {
@@ -34,10 +35,12 @@ public class Employee {
 		return place;
 	}
 	public void setPlace(String place) {
+		//System.out.println(getPlace());
 		this.place = place;
 	}
 	public String toString() {
 		return "employee [empid = "+empid+",empname = "+empname+",gender = "+gender+",dob = "+dob+",place = "+place+"]";
 	}
+
 
 }
