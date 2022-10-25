@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.ema.bean.Employee;
+import com.ema.controller.EditServlet;
 
 public class EmployeeDao {
 	public static Connection getCon() {
@@ -72,33 +73,6 @@ public class EmployeeDao {
 		return status;
 	}
 
-
-	public static Employee getEmployeeById(int empid) {
-		Employee emp = null;
-		try {
-			String sql = "select * from employdetails where empid=?";
-			PreparedStatement ps = getCon().prepareStatement(sql);
-			ps.setInt(1, empid);
-			ResultSet rs = ps.executeQuery();
-			while(rs.next()) {
-				
-			emp.setEmpid(rs.getInt(1));
-			emp.setEmpname(rs.getString(2));
-			emp.setGender(rs.getString(3));
-			emp.setDob(rs.getString(4));
-			emp.setPlace(rs.getString(5));
-			
-			System.out.println(empid);
-			
-			}
-			//System.out.println(emp.empname);
-		}catch(Exception e) {
-			e.printStackTrace();
-		}
-		return emp;
-	}
-
-
 	public static int updateEmployee(Employee employee) {
 		int status = 0;
 		try {
@@ -106,6 +80,9 @@ public class EmployeeDao {
 			PreparedStatement ps = getCon().prepareStatement(sql);
 			ps.setInt(1, employee.getEmpid());
 			ps.setString(2, employee.getEmpname());
+			
+			
+			
 			ps.setString(3, employee.getGender());
 			ps.setString(4, employee.getDob());
 			ps.setString(5, employee.getPlace());

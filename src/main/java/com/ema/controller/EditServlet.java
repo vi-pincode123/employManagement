@@ -14,6 +14,7 @@ import com.ema.dao.EmployeeDao;
 @WebServlet("/edit")
 
 public class EditServlet extends HttpServlet{
+	String na,gn,dd,pp;
 	public static Connection getCon() {
 		Connection con = null;
 		try {
@@ -32,7 +33,7 @@ public class EditServlet extends HttpServlet{
 		int id = Integer.parseInt(request.getParameter("ide"));
 		
 		System.out.println(id);
-		String na,gn,dd,pp;
+		
 		try {
 			String sql = "select * from employdetails where empid=?";
 			PreparedStatement ps = getCon().prepareStatement(sql);
@@ -42,7 +43,7 @@ public class EditServlet extends HttpServlet{
 				
 			//emp.setEmpid(rs.getInt(1));
 			na = rs.getString(2);
-			System.out.println(na);
+			//System.out.println(na.getClass().getName());
 			 gn = rs.getString(3);
 			 dd = rs.getString(3);
 			 pp = rs.getString(4);
@@ -58,10 +59,10 @@ public class EditServlet extends HttpServlet{
 			e.printStackTrace();
 		}
 		
-		Employee employee = EmployeeDao.getEmployeeById(id);
+		//Employee employee = EmployeeDao.getEmployeeById(id);
 		out.print("<body>");
 		out.print("<h1 align='center'><b>TABLE FORM</b></h1>");
-		out.print("<center><form action='update' method='post' style='font-size:40px'><label>ID</label><br>"
+		out.print("<center><form action='updates' method='post' style='font-size:40px'><label>ID</label><br>"
 				+ "<input type='hidden' value='"+id+"'><br><label>NAME</label><br><input type='text'  value='"+na+"'><br>"
 				+ "<label>GENDER</label><br><input type='radio' name='gender' value='"+gn+"'>male<input type='radio' name='gender'>female<br>"
 				+ "<label>date of birth</label><br><input type='date' value='"+dd+"'><br><label>PLACE</label><br>"
